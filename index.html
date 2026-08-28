@@ -73,6 +73,68 @@
       --shadow:0 4px 18px rgba(0,0,0,0.28), 0 1px 3px rgba(0,0,0,0.2);
     }
   }
+  html[data-theme="light"]{
+    --page-bg: radial-gradient(circle at 10% -5%, rgba(15,184,127,0.10), transparent 45%),
+               radial-gradient(circle at 100% 0%, rgba(255,176,32,0.12), transparent 40%),
+               linear-gradient(180deg, #eafbf3 0%, #fff8ec 100%);
+    --surface:#ffffff;
+    --surface-soft:#f4f6f5;
+    --border:#e8ede8;
+    --text:#1f2937;
+    --text-dim:#6b7280;
+    --text-faint:#9aa3ab;
+    --mint:#0fb87f;
+    --mint-soft:#e3f9ee;
+    --mint-soft-active:#d3f3e5;
+    --chip-text:#0a7a54;
+    --coral:#ff6b4a;
+    --coral-soft:#ffe9e2;
+    --sky:#2f8fe6;
+    --link-bg:linear-gradient(135deg,#eaf5ff,#dff0ff);
+    --link-border:#cfe6ff;
+    --danger:#ef4444;
+    --danger-bg:#fef2f2;
+    --danger-border:#fecaca;
+    --modal-bg:#fffdf9;
+    --field-bg:#f8faf8;
+    --field-border:#e8ede8;
+    --dash-border:#cdd7cf;
+    --bubble-chat-bg:#efeae2;
+    --bubble-sent-bg:#d9fdd3;
+    --bubble-text:#111b21;
+    --shadow:0 4px 18px rgba(31,41,55,0.06), 0 1px 3px rgba(31,41,55,0.04);
+  }
+  html[data-theme="dark"]{
+    --page-bg: radial-gradient(circle at 10% -5%, rgba(15,184,127,0.14), transparent 45%),
+               radial-gradient(circle at 100% 0%, rgba(255,176,32,0.08), transparent 40%),
+               linear-gradient(180deg, #0c100e 0%, #10140f 100%);
+    --surface:#1a201c;
+    --surface-soft:#20261f;
+    --border:rgba(255,255,255,0.08);
+    --text:#f3f5f2;
+    --text-dim:#9aa39c;
+    --text-faint:#6c766f;
+    --mint:#34d399;
+    --mint-soft:rgba(52,211,153,0.14);
+    --mint-soft-active:rgba(52,211,153,0.22);
+    --chip-text:#5eead4;
+    --coral:#ff8a68;
+    --coral-soft:rgba(255,138,104,0.14);
+    --sky:#6db8ff;
+    --link-bg:linear-gradient(135deg,rgba(61,140,222,0.16),rgba(61,140,222,0.10));
+    --link-border:rgba(109,184,255,0.28);
+    --danger:#f87171;
+    --danger-bg:rgba(248,113,113,0.1);
+    --danger-border:rgba(248,113,113,0.28);
+    --modal-bg:#171c17;
+    --field-bg:#20261f;
+    --field-border:rgba(255,255,255,0.08);
+    --dash-border:rgba(255,255,255,0.14);
+    --bubble-chat-bg:#0b141a;
+    --bubble-sent-bg:#005c4b;
+    --bubble-text:#e9edef;
+    --shadow:0 4px 18px rgba(0,0,0,0.28), 0 1px 3px rgba(0,0,0,0.2);
+  }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html,body{margin:0;padding:0;}
   body{
@@ -135,8 +197,9 @@
     padding:16px 16px 14px; margin-bottom:14px; box-shadow:var(--shadow);
   }
   .activity-head{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:12px;}
-  .activity-name{font-family:'Baloo 2'; font-weight:700; font-size:15.5px; letter-spacing:.005em; line-height:1.3; color:var(--text);}
-  .activity-meta{font-size:11px; color:var(--text-faint); margin-top:2px; font-weight:600;}
+  .activity-name{font-family:'Baloo 2'; font-weight:700; font-size:18.5px; letter-spacing:.005em; line-height:1.3; color:var(--text); display:flex; align-items:center; gap:8px;}
+  .activity-icon{font-size:20px; line-height:1; flex-shrink:0;}
+  .activity-meta{font-size:11px; color:var(--text-faint); margin-top:3px; font-weight:600;}
   .activity-actions{display:flex; gap:6px; flex-shrink:0;}
   .icon-btn-sm{
     width:30px;height:30px;border-radius:10px;border:none; background:var(--surface-soft);
@@ -151,7 +214,7 @@
     padding:9px 2px; border-top:1px solid var(--border);
   }
   .staff-row:first-of-type{border-top:none;}
-  .staff-name{font-size:13.5px; font-weight:600; display:flex; align-items:center; gap:6px; min-width:0; flex:1; color:var(--text);}
+  .staff-name{font-size:15.5px; font-weight:600; display:flex; align-items:center; gap:6px; min-width:0; flex:1; color:var(--text);}
   .staff-name .checks{color:var(--mint); font-size:12px; letter-spacing:1px; flex-shrink:0;}
   .staff-name span.n{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
   .stepper{display:flex; align-items:center; gap:0; flex-shrink:0;}
@@ -233,6 +296,8 @@
   @media (prefers-color-scheme: dark){
     .actionbar{ background:linear-gradient(180deg, transparent, rgba(12,16,14,0.95) 35%); }
   }
+  html[data-theme="light"] .actionbar{ background:linear-gradient(180deg, transparent, rgba(255,248,236,0.95) 35%); }
+  html[data-theme="dark"] .actionbar{ background:linear-gradient(180deg, transparent, rgba(12,16,14,0.95) 35%); }
   .btn{
     flex:1; border:none; border-radius:16px; padding:14px 10px; font-family:'Baloo 2'; font-weight:700;
     font-size:14.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:7px;
@@ -303,6 +368,7 @@
     </div>
     <div class="topbar-right">
       <div class="sync-pill loading" id="syncPill">⏳ Memuat...</div>
+      <button class="gear-btn" id="themeBtn">🌓</button>
       <button class="gear-btn" id="openSettings">⚙️</button>
     </div>
   </div>
@@ -355,6 +421,7 @@
 
     <div class="danger-zone">
       <button class="danger-btn" id="resetDayBtn">Reset centang hari ini</button>
+      <button class="danger-btn" id="resetConfigBtn" style="margin-top:10px;">Reset ke setelan awal (staff &amp; aktivitas)</button>
     </div>
 
     <button class="modal-close" id="closeSettings">Selesai</button>
@@ -377,14 +444,14 @@ function defaultConfig(){
   return {
     staff,
     activities: [
-      {id:"a1", name:"NPS", link:"https://docs.google.com/forms/d/e/1FAIpQLSfDm-GxddcdLdITucVsHNJiOH8BqsA0XceNrYv8qr4LxaXudw/viewform?usp=dialog", staffIds:[]},
-      {id:"a2", name:"NEW MAPCLUB", link:"", staffIds:[]},
-      {id:"a3", name:"SAMUDERA (Submit Link)", link:"https://docs.google.com/forms/d/e/1FAIpQLSdDj3fPWA5_tZ7xBcjEhb8hMn0DAQ5Ok_joASUjwStYUjC5Ow/viewform", staffIds:[]},
-      {id:"a4", name:"AKSARA (TimeMark) Minim 6 /Hari", link:"https://docs.google.com/forms/d/e/1FAIpQLSckv5jybuadbmja0zvLqJXvWLPufpTUOCHrkLrU-3Ho9nZDJA/viewform", staffIds:[]},
-      {id:"a8", name:"CAKRAWALA (Try On)", link:"https://forms.gle/MKYKoYuzZ9jHqtPZA", staffIds:[]},
-      {id:"a5", name:"GOOGLE REVIEW", link:"", staffIds:[]},
-      {id:"a6", name:"SUBMIT FEEDBACK", link:"https://forms.cloud.microsoft/r/v0jzUN3ieX?origin=lprLink", staffIds:[]},
-      {id:"a7", name:"ICLOUD+", link:"https://www.menti.com/blwrxg7sct7n", staffIds:[]}
+      {id:"a1", name:"NPS", icon:"📊", link:"https://docs.google.com/forms/d/e/1FAIpQLSfDm-GxddcdLdITucVsHNJiOH8BqsA0XceNrYv8qr4LxaXudw/viewform?usp=dialog"},
+      {id:"a2", name:"NEW MAPCLUB", icon:"🗺️", link:""},
+      {id:"a3", name:"SAMUDERA (Submit Link)", icon:"🌊", link:"https://docs.google.com/forms/d/e/1FAIpQLSdDj3fPWA5_tZ7xBcjEhb8hMn0DAQ5Ok_joASUjwStYUjC5Ow/viewform"},
+      {id:"a4", name:"AKSARA (TimeMark) Minim 6 /Hari", icon:"⏱️", link:"https://docs.google.com/forms/d/e/1FAIpQLSckv5jybuadbmja0zvLqJXvWLPufpTUOCHrkLrU-3Ho9nZDJA/viewform"},
+      {id:"a8", name:"CAKRAWALA (Try On)", icon:"🌅", link:"https://forms.gle/MKYKoYuzZ9jHqtPZA"},
+      {id:"a5", name:"GOOGLE REVIEW", icon:"⭐", link:""},
+      {id:"a6", name:"SUBMIT FEEDBACK", icon:"📝", link:"https://forms.cloud.microsoft/r/v0jzUN3ieX?origin=lprLink"},
+      {id:"a7", name:"ICLOUD+", icon:"☁️", link:"https://www.menti.com/blwrxg7sct7n"}
     ],
     opening: "Minimal 1 Staff / 1 Per Activity",
     closing: "KIRIM DI GRUP INI GUYS 🔥🤝"
@@ -572,19 +639,25 @@ function renderDateBar(){
   document.getElementById("todayPill").classList.toggle("show", !followToday);
 }
 
+function activeStaffFor(actId){
+  const obj = dayData.counts[actId] || {};
+  return Object.keys(obj).filter(name => obj[name] > 0);
+}
+
 function renderActivities(){
   const list = document.getElementById("activityList");
   list.innerHTML = "";
   config.activities.forEach(act => {
     const card = document.createElement("div");
     card.className = "activity";
+    const activeStaff = activeStaffFor(act.id);
 
     const head = document.createElement("div");
     head.className = "activity-head";
     head.innerHTML = `
       <div>
-        <div class="activity-name">${escapeHtml(act.name)}</div>
-        <div class="activity-meta">${act.staffIds.length} staff melaksanakan</div>
+        <div class="activity-name"><span class="activity-icon">${act.icon || "📌"}</span>${escapeHtml(act.name)}</div>
+        <div class="activity-meta">${activeStaff.length} staff melaksanakan</div>
       </div>
       <div class="activity-actions">
         <button class="icon-btn-sm" data-edit="${act.id}">✎</button>
@@ -592,14 +665,14 @@ function renderActivities(){
       </div>`;
     card.appendChild(head);
 
-    if(act.staffIds.length === 0){
+    if(activeStaff.length === 0){
       const hint = document.createElement("div");
       hint.className = "empty-hint";
       hint.textContent = "Belum ada staff — tambahkan lewat dropdown di bawah saat mulai mengerjakan.";
       card.appendChild(hint);
     }
 
-    act.staffIds.forEach(staffName => {
+    activeStaff.forEach(staffName => {
       const count = getCount(act.id, staffName);
       const row = document.createElement("div");
       row.className = "staff-row";
@@ -616,16 +689,15 @@ function renderActivities(){
 
     const addRow = document.createElement("div");
     addRow.className = "add-staff-row";
-    const available = config.staff.filter(s => !act.staffIds.includes(s));
+    const available = config.staff.filter(s => !activeStaff.includes(s));
     if(available.length){
       const sel = document.createElement("select");
       sel.innerHTML = `<option value="">+ Tambah staff ke aktivitas ini</option>` +
         available.map(s=>`<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join("");
       sel.addEventListener("change", ()=>{
         if(sel.value){
-          act.staffIds.push(sel.value);
+          setCount(act.id, sel.value, 1);
           renderAll();
-          pushConfig();
         }
       });
       addRow.appendChild(sel);
@@ -657,10 +729,8 @@ function renderActivities(){
   }));
   list.querySelectorAll("[data-unassign]").forEach(b=>b.addEventListener("click",()=>{
     const [aid,name] = b.dataset.unassign.split("|");
-    const act = config.activities.find(a=>a.id===aid);
-    act.staffIds = act.staffIds.filter(s=>s!==name);
+    setCount(aid,name, 0);
     renderAll();
-    pushConfig();
   }));
   list.querySelectorAll("[data-delact]").forEach(b=>b.addEventListener("click",()=>{
     if(confirm("Hapus aktivitas ini?")){
@@ -676,6 +746,8 @@ function renderActivities(){
     if(newName.trim()) act.name = newName.trim();
     const newLink = prompt("Link submit (kosongkan jika tidak ada):", act.link || "");
     if(newLink !== null) act.link = newLink.trim();
+    const newIcon = prompt("Icon/emoji (contoh: 📊):", act.icon || "📌");
+    if(newIcon !== null && newIcon.trim()) act.icon = newIcon.trim();
     renderAll();
     pushConfig();
   }));
@@ -692,7 +764,7 @@ function buildReportText(){
   if(config.opening.trim()){ lines.push(config.opening.trim()); lines.push(""); }
 
   config.activities.forEach(act=>{
-    const doneStaff = act.staffIds.filter(s => getCount(act.id,s) > 0);
+    const doneStaff = activeStaffFor(act.id);
     lines.push(act.name);
     doneStaff.forEach((s,i)=>{
       const c = getCount(act.id,s);
@@ -725,9 +797,8 @@ function renderSettingsChips(){
   });
   chips.querySelectorAll("[data-rmstaff]").forEach(b=>b.addEventListener("click",()=>{
     const name = b.dataset.rmstaff;
-    if(confirm(`Hapus "${name}" dari daftar staff? (juga dihapus dari semua aktivitas)`)){
+    if(confirm(`Hapus "${name}" dari daftar roster staff?`)){
       config.staff = config.staff.filter(s=>s!==name);
-      config.activities.forEach(a=> a.staffIds = a.staffIds.filter(s=>s!==name));
       renderAll();
       renderSettingsChips();
       pushConfig();
@@ -792,7 +863,8 @@ document.getElementById("addActivityBtn").addEventListener("click",()=>{
   const name = prompt("Nama aktivitas baru:");
   if(name === null || !name.trim()) return;
   const link = prompt("Link submit (kosongkan jika tidak ada):", "") || "";
-  config.activities.push({id:"a"+Date.now(), name:name.trim(), link:link.trim(), staffIds:[]});
+  const icon = prompt("Icon/emoji (contoh: 📌):", "📌") || "📌";
+  config.activities.push({id:"a"+Date.now(), name:name.trim(), link:link.trim(), icon:icon.trim() || "📌"});
   renderAll();
   pushConfig();
 });
@@ -849,6 +921,36 @@ document.getElementById("resetDayBtn").addEventListener("click", async ()=>{
     try{ await remoteSet(remoteDataKey(key), dayData); setStatus("saved"); }
     catch(e){ setStatus("offline"); }
   }
+});
+
+document.getElementById("resetConfigBtn").addEventListener("click", async ()=>{
+  if(confirm("Kembalikan daftar staff & aktivitas ke setelan awal? Centang hari-hari yang sudah tersimpan tidak akan hilang, tapi daftar staff/aktivitas custom akan hilang.")){
+    config = defaultConfig();
+    document.getElementById("modalBg").classList.remove("open");
+    renderAll();
+    renderSettingsChips();
+    setStatus("saving");
+    try{ await remoteSet(REMOTE_CONFIG_KEY, config); setStatus("saved"); }
+    catch(e){ setStatus("offline"); }
+  }
+});
+
+const THEME_KEY = "digimap_theme_pref";
+function applyTheme(pref){
+  if(pref === "light" || pref === "dark"){
+    document.documentElement.setAttribute("data-theme", pref);
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+  const btn = document.getElementById("themeBtn");
+  if(btn) btn.textContent = pref==="light" ? "☀️" : pref==="dark" ? "🌙" : "🌓";
+}
+let themePref = localStorage.getItem(THEME_KEY) || "auto";
+applyTheme(themePref);
+document.getElementById("themeBtn").addEventListener("click", ()=>{
+  themePref = themePref==="auto" ? "light" : themePref==="light" ? "dark" : "auto";
+  localStorage.setItem(THEME_KEY, themePref);
+  applyTheme(themePref);
 });
 
 init();
